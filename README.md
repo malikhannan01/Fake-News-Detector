@@ -84,30 +84,6 @@ Result is shown as **REAL or FAKE**
 
 ---
 
-## How to Use
-
-# Load saved model and vectorizer
-import pickle
-
-model = pickle.load(open("fake_news_model", "rb"))
-vectorizer = pickle.load(open("tfidf_vectorizer", "rb"))
-
-# Take user input
-news = input("Enter news text: ")
-
-# Transform input text
-input_data = vectorizer.transform([news])
-
-# Make prediction
-prediction = model.predict(input_data)
-
-# Show result
-if prediction[0] == 1:
-    print("Real News")
-else:
-    print("Fake News")
-   
----
 
 ## Future Improvements
 - Train on larger and more diverse real-world datasets  
@@ -115,8 +91,33 @@ else:
 - Improve generalization using transfer learning  
 - Add real-time news scraping system  
 - Deploy as web app (Streamlit / Flask)  
-- Improve ensemble learning strategy  
+- Improve ensemble learning strategy
 
+  ---
+
+  ## How to Use
+
+### Load saved model and vectorizer
+import pickle
+
+model = pickle.load(open("fake_news_model", "rb"))
+vectorizer = pickle.load(open("tfidf_vectorizer", "rb"))
+
+### Take user input
+news = input("Enter news text: ")
+
+### Transform input text
+input_data = vectorizer.transform([news])
+
+### Make prediction
+prediction = model.predict(input_data)
+
+### Show result
+if prediction[0] == 1:
+    print("Real News")
+else:
+    print("Fake News")
+   
 ---
 
 ## Conclusion
