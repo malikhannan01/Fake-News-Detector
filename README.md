@@ -100,8 +100,8 @@ Result is shown as **REAL or FAKE**
 ### Load saved model and vectorizer
 import pickle
 
-model = pickle.load(open("fake_news_model", "rb"))
-vectorizer = pickle.load(open("tfidf_vectorizer", "rb"))
+model = pickle.load(open("fake_news_model.pkl", "rb"))
+vectorizer = pickle.load(open("tfidf_vectorizer.pkl", "rb"))
 
 ### Take user input
 news = input("Enter news text: ")
