@@ -32,7 +32,7 @@ The following preprocessing steps were applied:
 - Lowercasing text
 - Tokenization
 - Stopwords removal
-- Lemmatization (if applied)
+- Empty URLs
 
 ---
 
@@ -63,8 +63,8 @@ The following preprocessing steps were applied:
 ---
 
 ## Model Files
-- fake_news_model  
-- tfidf_vectorizer  
+- fake_news_model.pkl  
+- tfidf_vectorizer.pkl  
 
 ---
 
@@ -82,6 +82,31 @@ Result is shown as **REAL or FAKE**
 - Cannot fully understand evolving news writing styles  
 - May fail on unseen topics or highly modern/news-specific language  
 
+---
+
+## How to Use
+
+# Load saved model and vectorizer
+import pickle
+
+model = pickle.load(open("fake_news_model", "rb"))
+vectorizer = pickle.load(open("tfidf_vectorizer", "rb"))
+
+# Take user input
+news = input("Enter news text: ")
+
+# Transform input text
+input_data = vectorizer.transform([news])
+
+# Make prediction
+prediction = model.predict(input_data)
+
+# Show result
+if prediction[0] == 1:
+    print("Real News")
+else:
+    print("Fake News")
+   
 ---
 
 ## Future Improvements
